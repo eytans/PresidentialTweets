@@ -10,7 +10,7 @@ class NaiveBayes(object):
         self.classes = classes
         # for key == y value is probability
         self._py = {}
-        self._pxiy = None
+        self._pxiy = {}
         self.priora = priora
         self._regulisers = {}
 
@@ -97,7 +97,8 @@ def __main__():
             continue
         for i in range(args.validations):
             xtrain, xtest, ytrain, ytest = train_test_split(learning_data, classes, test_size=0.25)
-            clf = NaiveBayes(priora=priora, data=xtrain, classes=xtest)
+            clf = NaiveBayes(priora=priora, data=xtrain, classes=ytrain)
+            clf.train()
             print('prior: {}. validation: {}. score: {}'.format(priora, i+1, clf.score(xtest, ytest)))
 
 
