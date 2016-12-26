@@ -1,7 +1,7 @@
 import pandas
 from collections import defaultdict
 import argparse
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, KFold
 
 
 class NaiveBayes(object):
@@ -9,9 +9,13 @@ class NaiveBayes(object):
         self.data = data
         self.classes = classes
         # for key == y value is probability
+        self._init_inner()
+        self.priora = priora
+
+
+    def _init_inner(self):
         self._py = {}
         self._pxiy = {}
-        self.priora = priora
         self._regulisers = {}
 
     def train(self, copy=False):
@@ -25,7 +29,7 @@ class NaiveBayes(object):
             self.data = pandas.DataFrame(self.data)
         if not isinstance(self.classes, pandas.Series):
             self.classes = pandas.Series(self.classes)
-
+        self._init_inner()
         # MLE calculation of py is number of seen divided by total number of samples
         # TODO: probably dont need to regularise value
         self._py = self.classes.value_counts().map(lambda count: count/float(self.classes.count())).to_dict()
@@ -74,11 +78,20 @@ class NaiveBayes(object):
             res += y == self.classify(data)
         return float(res)/total
 
+    def fit(self, x, y):
+        self.data = x
+        self.classes = y
+        self.train()
+
+    def predict(self, x):
+        return self.classify(x)
 
 def __main__():
     parser = argparse.ArgumentParser()
     parser.add_argument('--validations', type=int, default=5, help='how many sets to use for cross validation')
-    parser.add_argument('-p', '--prior', type=float, default=0.1, help='size of jump for prior')
+    parser.add_argument('-f', '--folds', type=int, default=4, help='amount of folds')
+    parser.add_argument('-t', '--test', type=int, default=1, help='fold in test')
+    parser.add_argument('-p', '--prior', type=float, default=0.05, help='size of jump for prior')
     parser.add_argument('path', help='path to data csv')
     args = parser.parse_args()
 
@@ -95,11 +108,35 @@ def __main__():
         priora += args.prior
         if priora > 1:
             continue
+        print("random set valiidation:")
         for i in range(args.validations):
-            xtrain, xtest, ytrain, ytest = train_test_split(learning_data, classes, test_size=0.25)
+            xtrain, xtest, ytrain, ytest = train_test_split(learning_data, classes, test_size=args.test/float(args.folds))
             clf = NaiveBayes(priora=priora, data=xtrain, classes=ytrain)
             clf.train()
-            print('prior: {}. validation: {}. score: {}'.format(priora, i+1, clf.score(xtest, ytest)))
+            print('\tprior: {}. validation: {}. score: {}'.format(priora, i+1, clf.score(xtest, ytest)))
+        print("kfold validations:")
+
+        for i in range(args.validations):
+            kf = KFold(args.folds, shuffle=True)
+            total = 0
+            length = 0
+            for train_indices, test_indices in kf.split(learning_data):
+                train_X = learning_data.loc[learning_data.index[train_indices]]
+                train_Y = classes.loc[learning_data.index[train_indices]]
+                test_X = learning_data.loc[learning_data.index[test_indices]]
+                test_Y = classes.loc[learning_data.index[test_indices]]
+
+                # Train the model, and evaluate it
+                clf = NaiveBayes(priora=priora, data=train_X, classes=train_Y)
+                clf.train()
+
+                predictions = [clf.classify(x[1]) for x in test_X.iterrows()]
+                testing_classes = [y for y in test_Y]
+                acc = sum(map(lambda x: x[0] == x[1], zip(predictions, testing_classes)))
+                total += float(acc)/len(test_Y)
+                length += 1
+            print("after {} runs got {} accuracy".format(length, total/length))
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,227 @@
+random set valiidation:prior: 0.050010000000000006. validation: 1. score: 0.925
+	prior: 0.050010000000000006. validation: 2. score: 0.919
+	prior: 0.050010000000000006. validation: 3. score: 0.927
+	prior: 0.050010000000000006. validation: 4. score: 0.918
+	prior: 0.050010000000000006. validation: 5. score: 0.914
+kfold validations:
+after 4 runs got 0.96747753806111 accuracy
+after 4 runs got 0.9671922258527346 accuracy
+after 4 runs got 0.9673276997725486 accuracy
+after 4 runs got 0.9673454907941836 accuracy
+after 4 runs got 0.9672442157951204 accuracy
+random set valiidation:
+	prior: 0.10001000000000002. validation: 1. score: 0.912
+	prior: 0.10001000000000002. validation: 2. score: 0.914
+	prior: 0.10001000000000002. validation: 3. score: 0.92
+	prior: 0.10001000000000002. validation: 4. score: 0.91
+	prior: 0.10001000000000002. validation: 5. score: 0.919
+kfold validations:
+after 4 runs got 0.9634902736185708 accuracy
+after 4 runs got 0.9632288280954511 accuracy
+after 4 runs got 0.9634331432457804 accuracy
+after 4 runs got 0.9635267187865819 accuracy
+after 4 runs got 0.9632634471036086 accuracy
+random set valiidation:
+	prior: 0.15001000000000003. validation: 1. score: 0.895
+	prior: 0.15001000000000003. validation: 2. score: 0.895
+	prior: 0.15001000000000003. validation: 3. score: 0.908
+	prior: 0.15001000000000003. validation: 4. score: 0.898
+	prior: 0.15001000000000003. validation: 5. score: 0.909
+kfold validations:
+after 4 runs got 0.9602263539672405 accuracy
+after 4 runs got 0.9603494344661905 accuracy
+after 4 runs got 0.9601845682816236 accuracy
+after 4 runs got 0.9606308250180458 accuracy
+after 4 runs got 0.9604536070267005 accuracy
+random set valiidation:
+	prior: 0.20001000000000002. validation: 1. score: 0.88
+	prior: 0.20001000000000002. validation: 2. score: 0.9
+	prior: 0.20001000000000002. validation: 3. score: 0.894
+	prior: 0.20001000000000002. validation: 4. score: 0.899
+	prior: 0.20001000000000002. validation: 5. score: 0.883
+kfold validations:
+after 4 runs got 0.9561389730993005 accuracy
+after 4 runs got 0.9561056094555509 accuracy
+after 4 runs got 0.9561374766216231 accuracy
+after 4 runs got 0.9559660720189253 accuracy
+after 4 runs got 0.9561437186270436 accuracy
+random set valiidation:
+	prior: 0.25001. validation: 1. score: 0.887
+	prior: 0.25001. validation: 2. score: 0.89
+	prior: 0.25001. validation: 3. score: 0.893
+	prior: 0.25001. validation: 4. score: 0.904
+	prior: 0.25001. validation: 5. score: 0.875
+kfold validations:
+after 4 runs got 0.954387463821252 accuracy
+after 4 runs got 0.9543458392225689 accuracy
+after 4 runs got 0.9544631589273357 accuracy
+after 4 runs got 0.9544010577892257 accuracy
+after 4 runs got 0.9543840451531237 accuracy
+random set valiidation:
+	prior: 0.30001. validation: 1. score: 0.878
+	prior: 0.30001. validation: 2. score: 0.873
+	prior: 0.30001. validation: 3. score: 0.892
+	prior: 0.30001. validation: 4. score: 0.893
+	prior: 0.30001. validation: 5. score: 0.885
+kfold validations:
+after 4 runs got 0.9526641078338985 accuracy
+after 4 runs got 0.9525898174669529 accuracy
+after 4 runs got 0.9527358520543301 accuracy
+after 4 runs got 0.9526845889815306 accuracy
+after 4 runs got 0.9526663492227571 accuracy
+random set valiidation:
+	prior: 0.35001. validation: 1. score: 0.878
+	prior: 0.35001. validation: 2. score: 0.876
+	prior: 0.35001. validation: 3. score: 0.883
+	prior: 0.35001. validation: 4. score: 0.895
+	prior: 0.35001. validation: 5. score: 0.889
+kfold validations:
+after 4 runs got 0.9505480383495188 accuracy
+after 4 runs got 0.9508001133114221 accuracy
+after 4 runs got 0.950695347143167 accuracy
+after 4 runs got 0.9507209541164706 accuracy
+after 4 runs got 0.9508867806644542 accuracy
+random set valiidation:
+	prior: 0.40001. validation: 1. score: 0.887
+	prior: 0.40001. validation: 2. score: 0.885
+	prior: 0.40001. validation: 3. score: 0.865
+	prior: 0.40001. validation: 4. score: 0.868
+	prior: 0.40001. validation: 5. score: 0.887
+kfold validations:
+after 4 runs got 0.9495152680596 accuracy
+after 4 runs got 0.9495924396128634 accuracy
+after 4 runs got 0.9495010532017275 accuracy
+after 4 runs got 0.9497376054407523 accuracy
+after 4 runs got 0.9495946553327882 accuracy
+random set valiidation:
+	prior: 0.45000999999999997. validation: 1. score: 0.879
+	prior: 0.45000999999999997. validation: 2. score: 0.871
+	prior: 0.45000999999999997. validation: 3. score: 0.861
+	prior: 0.45000999999999997. validation: 4. score: 0.877
+	prior: 0.45000999999999997. validation: 5. score: 0.882
+kfold validations:
+after 4 runs got 0.9483661401067933 accuracy
+after 4 runs got 0.9486042907658888 accuracy
+after 4 runs got 0.9485151567108723 accuracy
+after 4 runs got 0.9484724382480566 accuracy
+after 4 runs got 0.9487875303257834 accuracy
+random set valiidation:
+	prior: 0.50001. validation: 1. score: 0.862
+	prior: 0.50001. validation: 2. score: 0.862
+	prior: 0.50001. validation: 3. score: 0.868
+	prior: 0.50001. validation: 4. score: 0.873
+	prior: 0.50001. validation: 5. score: 0.875
+kfold validations:
+after 4 runs got 0.9472384325843919 accuracy
+after 4 runs got 0.9473353734636221 accuracy
+after 4 runs got 0.9473055059912737 accuracy
+after 4 runs got 0.9470975828974583 accuracy
+after 4 runs got 0.9472466303017941 accuracy
+random set valiidation:
+	prior: 0.55001. validation: 1. score: 0.852
+	prior: 0.55001. validation: 2. score: 0.843
+	prior: 0.55001. validation: 3. score: 0.854
+	prior: 0.55001. validation: 4. score: 0.87
+	prior: 0.55001. validation: 5. score: 0.861
+kfold validations:
+after 4 runs got 0.9458572064045692 accuracy
+after 4 runs got 0.9461462042661208 accuracy
+after 4 runs got 0.945837502248542 accuracy
+after 4 runs got 0.9457652217715637 accuracy
+after 4 runs got 0.9463423715587402 accuracy
+random set valiidation:
+	prior: 0.60001. validation: 1. score: 0.857
+	prior: 0.60001. validation: 2. score: 0.859
+	prior: 0.60001. validation: 3. score: 0.859
+	prior: 0.60001. validation: 4. score: 0.851
+	prior: 0.60001. validation: 5. score: 0.854
+kfold validations:
+after 4 runs got 0.9446492971836282 accuracy
+after 4 runs got 0.9446371376307576 accuracy
+after 4 runs got 0.9443019080464928 accuracy
+after 4 runs got 0.9445715562959287 accuracy
+after 4 runs got 0.944539729724765 accuracy
+random set valiidation:
+	prior: 0.6500100000000001. validation: 1. score: 0.834
+	prior: 0.6500100000000001. validation: 2. score: 0.852
+	prior: 0.6500100000000001. validation: 3. score: 0.831
+	prior: 0.6500100000000001. validation: 4. score: 0.859
+	prior: 0.6500100000000001. validation: 5. score: 0.86
+kfold validations:
+after 4 runs got 0.9428287733386571 accuracy
+after 4 runs got 0.9427075988266632 accuracy
+after 4 runs got 0.943298002108669 accuracy
+after 4 runs got 0.9430490160266142 accuracy
+after 4 runs got 0.9427976641811577 accuracy
+random set valiidation:
+	prior: 0.7000100000000001. validation: 1. score: 0.829
+	prior: 0.7000100000000001. validation: 2. score: 0.86
+	prior: 0.7000100000000001. validation: 3. score: 0.828
+	prior: 0.7000100000000001. validation: 4. score: 0.827
+	prior: 0.7000100000000001. validation: 5. score: 0.834
+kfold validations:
+after 4 runs got 0.9408389422576846 accuracy
+after 4 runs got 0.9408302695419336 accuracy
+after 4 runs got 0.9408764624592435 accuracy
+after 4 runs got 0.940611231598935 accuracy
+after 4 runs got 0.9406523909090788 accuracy
+random set valiidation:
+	prior: 0.7500100000000002. validation: 1. score: 0.836
+	prior: 0.7500100000000002. validation: 2. score: 0.834
+	prior: 0.7500100000000002. validation: 3. score: 0.839
+	prior: 0.7500100000000002. validation: 4. score: 0.83
+	prior: 0.7500100000000002. validation: 5. score: 0.841
+kfold validations:
+after 4 runs got 0.938038290850996 accuracy
+after 4 runs got 0.9387822752638895 accuracy
+after 4 runs got 0.9387588957719376 accuracy
+after 4 runs got 0.938682300518583 accuracy
+after 4 runs got 0.9385304589350619 accuracy
+random set valiidation:
+	prior: 0.8000100000000002. validation: 1. score: 0.818
+	prior: 0.8000100000000002. validation: 2. score: 0.828
+	prior: 0.8000100000000002. validation: 3. score: 0.837
+	prior: 0.8000100000000002. validation: 4. score: 0.824
+	prior: 0.8000100000000002. validation: 5. score: 0.829
+kfold validations:
+after 4 runs got 0.9363750394529538 accuracy
+after 4 runs got 0.9364609638899788 accuracy
+after 4 runs got 0.9360322995194906 accuracy
+after 4 runs got 0.9365851113087822 accuracy
+after 4 runs got 0.936279254487652 accuracy
+random set valiidation:
+	prior: 0.8500100000000003. validation: 1. score: 0.818
+	prior: 0.8500100000000003. validation: 2. score: 0.829
+	prior: 0.8500100000000003. validation: 3. score: 0.842
+	prior: 0.8500100000000003. validation: 4. score: 0.819
+	prior: 0.8500100000000003. validation: 5. score: 0.814
+kfold validations:
+after 4 runs got 0.9349295392039396 accuracy
+after 4 runs got 0.9344752207770811 accuracy
+after 4 runs got 0.9347481994651162 accuracy
+after 4 runs got 0.9349293281664796 accuracy
+after 4 runs got 0.9347459816085945 accuracy
+random set valiidation:
+	prior: 0.9000100000000003. validation: 1. score: 0.815
+	prior: 0.9000100000000003. validation: 2. score: 0.806
+	prior: 0.9000100000000003. validation: 3. score: 0.819
+	prior: 0.9000100000000003. validation: 4. score: 0.82
+	prior: 0.9000100000000003. validation: 5. score: 0.823
+kfold validations:
+after 4 runs got 0.9339650837865328 accuracy
+after 4 runs got 0.9335979580227081 accuracy
+after 4 runs got 0.9338492886370702 accuracy
+after 4 runs got 0.9338550965141544 accuracy
+after 4 runs got 0.9338585751164854 accuracy
+random set valiidation:
+	prior: 0.9500100000000004. validation: 1. score: 0.829
+	prior: 0.9500100000000004. validation: 2. score: 0.821
+	prior: 0.9500100000000004. validation: 3. score: 0.812
+	prior: 0.9500100000000004. validation: 4. score: 0.82
+	prior: 0.9500100000000004. validation: 5. score: 0.811
+kfold validations:
+after 4 runs got 0.9322008559037096 accuracy
+after 4 runs got 0.9326725974346517 accuracy
+after 4 runs got 0.9325470547342025 accuracy
+after 4 runs got 0.9324849453990153 accuracy
+after 4 runs got 0.9325516040341454 accuracy
