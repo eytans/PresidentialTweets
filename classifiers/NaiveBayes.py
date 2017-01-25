@@ -3,6 +3,7 @@ from collections import defaultdict
 import argparse
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 import sklearn.base
+from functools import reduce
 
 
 class NaiveBayes(sklearn.base.BaseEstimator):
@@ -43,44 +44,59 @@ class NaiveBayes(sklearn.base.BaseEstimator):
 
         # split data by classes and then just bag up the words. then we will have the wanted counts.
         y_data = {}
+        self.regulisers_ = defaultdict(lambda: (self.data_.count().sum() + self.priora*30))
+        for w, count in pandas.concat([self.data_[c] for c in self.data_.columns]).value_counts().iteritems():
+            self.regulisers_[w] = (self.priora + count) / self.regulisers_[w]
+
         for yj in self.py_.keys():
             y_data[yj] = self.data_.loc[self.classes_ == yj]
-            self.regulisers_[yj] = sum(y_data[yj].count()) + self.priora * 30
             self.pxiy_[yj] = defaultdict(lambda: self.priora)
             for c in y_data[yj]:
                 for i, count in y_data[yj][c].value_counts().iteritems():
                     self.pxiy_[yj][i] += count
-            # might end up huge when claculating probs so regulate the value a bit
+
             for k in self.pxiy_[yj]:
-                self.pxiy_[yj][k] /= self.regulisers_[yj]
+                self.pxiy_[yj][k] *= self.regulisers_[k]
 
         return self
 
-    def classify(self, data):
-        max_prob = 0
-        max_y = None
-        for y, prob in self.py_.items():
-            for w in data:
-                if w not in self.pxiy_[y]:
-                    self.pxiy_[y][w] /= self.regulisers_[y]
-                prob *= self.pxiy_[y][w]
-            if prob > max_prob:
-                max_prob = prob
-                max_y = y
-        return max_y
+    def classify(self, data: pandas.DataFrame):
+        def classify_row(row: pandas.Series):
+            probs = []
+            for y, prob in self.py_.items():
+                def w_to_prob(w: str):
+                    if pandas.isnull(w):
+                        return 1
+                    if w not in self.pxiy_[y]:
+                        if w not in self.regulisers_:
+                            self.regulisers_[w] = self.priora/self.regulisers_[w]
+                        self.pxiy_[y][w] *= self.regulisers_[w]
+                    return self.pxiy_[y][w]
+                probs.append((y, row.apply(w_to_prob)))
+            probs = list(map(lambda tup: (tup[0], reduce(lambda l, r: l*r, tup[1])), probs))
+            return max(probs, key=lambda t: t[1])[0]
+
+        return data.apply(classify_row, axis=1)
 
     def score(self, testx, testy):
-        total = 0
-        res = 0
-        for i, tup in enumerate(testx.itertuples()):
-            data = [w for w in tup if isinstance(w, str)]
-            y = testy.iloc[i]
-            total += 1
-            res += y == self.classify(data)
-        return float(res)/total
+        results = pandas.Series(self.classify(testx))
+        results.index = testx.index
+        return float((testy == results).sum())/len(testy)
 
     def predict(self, x):
         return self.classify(x)
+
+
+def transform_data(data):
+    classes = data['handle']
+    cols = list(data.columns)
+    cols.remove('text')
+    data = data.drop(cols, axis=1)
+
+    data['tl'] = data['text'].map(lambda x: len(x.split()))
+    learning_data = data['text'].apply(lambda x: pandas.Series(x.split()))
+    return learning_data, classes
+
 
 def __main__():
     parser = argparse.ArgumentParser()
@@ -92,13 +108,7 @@ def __main__():
     args = parser.parse_args()
 
     data = pandas.DataFrame.from_csv(args.path)
-    classes = data['handle']
-    cols = list(data.columns)
-    cols.remove('text')
-    data.drop(cols)
-
-    data['tl'] = data['text'].map(lambda x: len(x.split()))
-    learning_data = data['text'].apply(lambda x: pandas.Series(x.split()))
+    learning_data, classes = transform_data(data)
     priora = 0.00001
     while priora <= 1:
         priora += args.prior
