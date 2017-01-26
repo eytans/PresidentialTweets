@@ -109,12 +109,12 @@ def __main__():
 
     data = pandas.DataFrame.from_csv(args.path)
     learning_data, classes = transform_data(data)
-    priora = 0.00001
+    priora = 0.0
     while priora <= 1:
         priora += args.prior
         if priora > 1:
             continue
-        cv = 10
+        cv = 3
         print("prior - {} . accuracy - {}".format(priora,
                             sum(cross_val_score(NaiveBayes(priora=priora), learning_data, classes, cv=cv))/float(cv)))
 
